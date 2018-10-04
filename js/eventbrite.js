@@ -5,7 +5,14 @@ class Eventbrite {
         this.orden = 'date';
     }
     // metodo que obtiene las categorias de la api
-    // asyc obtenerCategorias() {
+    async obtenerCategorias() {
+        // constante que tiene el fetch
+        const enlaceCategorias = await fetch(`https://www.eventbriteapi.com/v3/categories/?token=${this.token_oauth}`);
+        // constante que convierte las categorias en json
+        const categorias = await enlaceCategorias.json();
 
-    // }
+        return {
+            categorias
+        }
+    }
 }
